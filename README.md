@@ -46,10 +46,12 @@ A general student-subject system
     
 #####  Login as an Administrator:
 mininaim@gmail.com
+
 admin
 
 ##### Login as a Student:
 david@gmail.com
+
 admin
 
 
