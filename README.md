@@ -35,15 +35,15 @@ A general student-subject system
 
 
 ### Screenshot:
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_1.png "ScreenShot") 
+- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_1.png "ScreenShot 1") 
  
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_2.png "ScreenShot")
+- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_2.png "ScreenShot 2")
 
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_3.png "ScreenShot")
+- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_3.png "ScreenShot 3")
 
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_4.png "ScreenShot")
+- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_4.png "ScreenShot 4")
 
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_5.png "ScreenShot")
+- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_5.png "ScreenShot 5")
 
 ### How to Install:
 
