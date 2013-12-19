@@ -7,12 +7,8 @@ A general student-subject system
 - PHP & MySQL
 - jQuery
 
-
-
-### Features:
-- Responsive Web Design
-
-##### Admin:
+### Features
+#####  Admin
 
 - One-single login page
 - Add/edit/delete subjects
@@ -22,26 +18,22 @@ A general student-subject system
 - Stats (total students + total subjects)
 - Turn on/off students & subjects (aka: tags)
 - Search (in the upcoming version)
-- ... etc
 
-##### Student:
+##### Student
 
 - Login from the same login page
 - Add/delete subjects (tags) via ajax
 - Display information (photo from Gravatar, role, date of registration, a list of subjects ..)
-- log out
-- ... etc
 
-
+##### Plus
+ -  Responsive Web Design
+ -  Many other features 
 
 ### Screenshot:
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screenshot_1.png "ScreenShot 1") 
- 
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screenshot_2.png "ScreenShot 2")
 
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screenshot_3.png "ScreenShot 3")
+![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screenshot_1.png "ScreenShot 1") 
 
-- ![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screenshot_4.png "ScreenShot 4")
+[ScreenShot 2](https://raw.github.com/mininaim/Student/master/screenshots/screenshot_2.png "ScreenShot 2") - [ScreenShot 3](https://raw.github.com/mininaim/Student/master/screenshots/screenshot_3.png "ScreenShot 3") - [ScreenShot 4](https://raw.github.com/mininaim/Student/master/screenshots/screenshot_4.png "ScreenShot 4")
 
 
 
@@ -52,13 +44,13 @@ A general student-subject system
 - Eit config.inc.php file (read it carefully), e.g: change email, URL (http://localhost/student/)
 - login with the credentials bellow, (you can change everything from the dashboard)
     
-####  Login as an Administrator:
-- mininaim@gmail.com
-- admin123$
+#####  Login as an Administrator:
+mininaim@gmail.com
+admin
 
-#### Login as a Student:
-- david@gmail.com
-- admin
+##### Login as a Student:
+david@gmail.com
+admin
 
 
 ### Credits
