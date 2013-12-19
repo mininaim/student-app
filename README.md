@@ -35,7 +35,10 @@ A general student-subject system
 
 
 ### Screenshot:
-![Alt text](https://raw.github.com/mininaim/Student/master/student_mobile_version.png "ScreenShot")
+![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_1.png "ScreenShot")
+![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_2.png "ScreenShot")
+![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_3.png "ScreenShot")
+![Alt text](https://raw.github.com/mininaim/Student/master/screenshots/screen_4.png "ScreenShot")
 
 
 ### How to Install:
