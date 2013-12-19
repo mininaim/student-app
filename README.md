@@ -43,7 +43,7 @@ A general student-subject system
 - The app run on localserver with almost 0 configuration, you need the latest version of PHP and MySQL.
 - Create new database and import the file (mysql/database.sql)
 - Eit config.inc.php file (read it carefully), e.g: change email, URL (http://localhost/student/)
-- login with the credentials above, (you can change everything from the dashboard)
+- login with the credentials bellow, (you can change everything from the dashboard)
     
 ####  Login as an Administrator:
 - mininaim@gmail.com
