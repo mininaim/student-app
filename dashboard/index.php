@@ -48,7 +48,7 @@ if (isset($_SESSION['super_admin_id'])) {
                     $title = mysql_real_escape_string($title);
                     
                     if (empty($title)) {
-                        header('location: index.php?cmd=subjects&e=0');
+                        header('location: index.php?cmd=subjects&action=new&e=0');
                     } else {
                         $check = $DB->execute("SELECT title FROM subjects WHERE title = '$title'");
                         
@@ -77,19 +77,43 @@ if (isset($_SESSION['super_admin_id'])) {
                 case 'edited':
                     
                     extract($_POST);
+                    $title = mysql_real_escape_string($title);
                     
                     if (empty($title)) {
                         header('location: index.php?cmd=subjects&action=edit&id=' . $id . '&e=0');
                     } else {
-                        $query = $DB->execute("UPDATE subjects SET title = '$title',status='$status' WHERE id = $id");
+                        $query = $DB->execute("UPDATE subjects SET title = '$title' WHERE id = $id");
                         header('location: index.php?cmd=subjects&e=2');
                         unset($query);
                     }
                     break;
-                
-                case 'del':
+
+                case 'on':
                     
                     $id = $_GET['id'];
+                    
+                    $query = $DB->execute("UPDATE subjects SET status = 0 WHERE id = $id");
+                    
+                    header('location: index.php?cmd=subjects');
+                    unset($query);
+                    
+                    break;
+                
+                case 'off':
+                    
+                    $id = $_GET['id'];
+                    
+                    $query = $DB->execute("UPDATE subjects SET status = 1 WHERE id = $id");
+                    
+                    header('location: index.php?cmd=subjects');
+                    unset($query);
+                    
+                    break;
+                    
+                    
+                case 'del':
+                    
+                    $id = (int)$_GET['id'];
                     
                     $query = $DB->execute("DELETE FROM subjects WHERE id = $id");
                     
@@ -126,11 +150,16 @@ if (isset($_SESSION['super_admin_id'])) {
                     $date     = date('Y-m-d H:i:s');
                     
                     if (!empty($username) AND !empty($email) AND !empty($password)) {
-                        $query = $DB->execute("INSERT INTO students VALUES (NULL, '$username', md5('$password'), '$email', '$date', '0','0')") or die(mysql_error());
                         
-                        
-                        unset($query);
-                        header('location: ?cmd=students&e=2');
+                        $select = $DB->execute("SELECT email FROM students WHERE email = '$email' AND role = 0") or die(mysql_error());
+                        if($DB->numRows($select) > 0) {
+                           header('location: ?cmd=students&e=1');  
+                        } else {
+                              $query = $DB->execute("INSERT INTO students VALUES (NULL, '$username', md5('$password'), '$email', '$date', '0','0')") or die(mysql_error());
+                              unset($query);
+                              header('location: ?cmd=students&e=2');
+                        }
+
                     } else {
                         header('location: ?cmd=students&action=new&e=0');
                     }
@@ -163,10 +192,13 @@ if (isset($_SESSION['super_admin_id'])) {
                     
                     extract($_POST);
                     
+                    
+                    
                     if (empty($username) OR empty($email)) {
                         header('location: index.php?cmd=students&action=edit&id=' . $id . '&e=0');
                     } else {
                         $username = mysql_real_escape_string($username);
+                        $email    = mysql_real_escape_string($email);
                         $query    = $DB->execute("UPDATE students SET 
                                     username = '$username',
                                     email    = '$email'

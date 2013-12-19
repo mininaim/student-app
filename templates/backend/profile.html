@@ -1,40 +1,45 @@
 <div class="container">
    <div class="row">
-      <div class="col-md-12">
-         <div class="well">
+   
+      <div class="col-md-4">
+
             <?php if(isset($_GET['e']) AND @$_GET['e'] == 0) { ?>
-            <p style="color:#7C40A2;padding:1em">
-               The fields marked with an <strong>*</strong> must be filled in.
+            <p class="message message-white">
+                    The fields must be filled in.
             </p>
             <?php } ?>
             <?php if(isset($_GET['e']) AND @$_GET['e'] == 1) { ?>
-            <p style="color:#7C40A2;padding:1em">
-               Admin information has been changed.
+            <p class="message message-white" style="color: #393">
+                    Admin information has been changed.
             </p>
             <?php } ?>
-            <div class="row">
-               <div class="col-md-4">
-                  <form role="form" method="post" action="?cmd=profile&amp;action=save">
-                     <input type="hidden" name="id" value="<?php echo $result->id ?>" />
-                     <input type="hidden" name="password1" value="<?php echo $result->password ?>" />
+         
+         <h3>
+            <i class="fa fa-cogs"></i> Edit Profile 
+         </h3>
+         
+         
+                  <form role="form" method="post" action="?cmd=profile&amp;action=save" class="widget">
+                     <input type="hidden" name="id" value="<?php echo $result->id ?>">
+                     <input type="hidden" name="password1" value="<?php echo $result->password ?>">
+                     
                      <div class="form-group">
                         <label>Username</label>
-                        <input type="text" name="username" value="<?php echo $result->username ?>" class="form-control" placeholder="">
+                        <input type="text" name="username" value="<?php echo $result->username ?>" class="form-control">
                      </div>
                      <div class="form-group">
                         <label>Email address</label>
-                        <input type="email" name="email" value="<?php echo $result->email ?>" class="form-control" placeholder="">
+                        <input type="email" name="email" value="<?php echo $result->email ?>" class="form-control">
                      </div>
                      <div class="form-group">
                         <label>Password</label>
-                        <input type="email" name="password"  class="form-control" placeholder="">
+                        <input type="password" name="password"  class="form-control">
                      </div>
-                     <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-               </div>
-            </div>
-         </div>
+                  
+            <input type="submit" value="Update Profile" class="btn btn-default pull-right">
+         </form>
+         
       </div>
+      
    </div>
 </div>
-

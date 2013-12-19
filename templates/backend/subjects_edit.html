@@ -1,46 +1,31 @@
 <div class="container">
    <div class="row">
-      <div class="col-md-12">
-         <div class="well" style="overflow:hidden">
-            <div class="col-md-4">
-               <?php if(isset($_GET['e']) AND @$_GET['e'] == 0) { ?>
-               <p style="color:#7C40A2;padding:1em">
-                  The fields marked with an <strong>*</strong> must be filled in.
-               </p>
-               <?php } ?>
-               <?php if(isset($_GET['e']) AND @$_GET['e'] == 1) { ?>
-               <p style="color:#7C40A2;padding:1em">
-                  This category is already existed. 
-               </p>
-               <?php } ?>
-               <?php if(isset($_GET['e']) AND @$_GET['e'] == 2) { ?>
-               <p style="color:#7C40A2;padding:1em">
-                  Your category has been successfully saved.
-               </p>
-               <?php } ?>
-               <form role="form" method="post" action="?cmd=subjects&amp;action=edited">
-                  <input type="hidden" name="id" value="<?php echo $result->id?>" />
+   
+      <div class="col-md-4">
+      
+         <?php if(isset($_GET['e']) AND @$_GET['e'] == 0) { ?>
+         <p class="message message-white">
+            All fields must be filled in.
+         </p>
+         <?php } ?>
+         
+         <h3>
+            <i class="fa fa-tags"></i> Edit Subject 
+         </h3>
+         
+               <form role="form" method="post" action="?cmd=subjects&amp;action=edited" class="widget">
+                  <input type="hidden" name="id" value="<?php echo $result->id?>">
+                  
                   <div class="form-group">
-                     <label>Subject </label>
-                     <input type="text" name="title" class="form-control" value="<?php echo $result->title?>" />
+                     <label>Subject Title </label>
+                     <input type="text" name="title" class="form-control" value="<?php echo $result->title?>">
                   </div>
-                  <div class="radio">
-                     <label>
-                     <input type="radio" name="status" id="optionsRadios1" value="0" <?php echo $result->status=='0'?'checked="checked"':''?>>
-                     On
-                     </label>
-                  </div>
-                  <div class="radio">
-                     <label>
-                     <input type="radio" name="status" id="optionsRadios2" value="1" <?php echo $result->status=='1'?'checked="checked"':''?>>
-                     Off
-                     </label>
-                  </div>
-                  <input type="submit" value="Update" class="btn btn-success" />
-               </form>
-            </div>
-         </div>
+
+                  
+            <input type="submit" value="Update Now" class="btn btn-danger pull-right">
+         </form>
+         
       </div>
+      
    </div>
-</div>
 </div>

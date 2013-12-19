@@ -1,66 +1,74 @@
 <div class="container">
    <div class="row">
+   
       <div class="col-md-12">
-         <?php if(isset($_GET['e']) AND @$_GET['e'] == 0) { ?>
-         <p style="color:#7C40A2;padding:1em">
-            The field marked with an <strong>*</strong> must be filled in.
-         </p>
-         <?php } ?>
+
          <?php if(isset($_GET['e']) AND @$_GET['e'] == 1) { ?>
-         <p style="color:#7C40A2;padding:1em">
-            This subject is already existed. 
+         <p class="message">
+                Subject is already existed. 
          </p>
          <?php } ?>
+         
          <?php if(isset($_GET['e']) AND @$_GET['e'] == 2) { ?>
-         <p style="color:#7C40A2;padding:1em">
-            Your subject has been successfully saved.
+         <p class="message message-success">
+                Subject has been successfully added.
          </p>
          <?php } ?>
+         
          <?php if(isset($_GET['e']) AND @$_GET['e'] == 3) { ?>
-         <p style="color:#7C40A2;padding:1em">
-            Your subject has been successfully deleted.
+         <p class="message message-success">
+            Subject has been successfully deleted.
          </p>
          <?php } ?>
-         <h3 style="color: #aaa" class="heading">
-            <i class="icon-folder-open icon-1x"></i> All Subjects 
+         
+         <h3>
+            <i class="fa fa-tags"></i> All subjects 
          </h3>
+         
          <hr />
-         <table class="table table-striped">
+         
+         <table class="table table-condensed table-hover">
             <thead>
                <tr>
-                  <th>#</th>
-                  <th>Subject</th>
+                  <th>Name</th>
                   <th>Added</th>
                   <th></th>
                </tr>
             </thead>
+            
             <tbody>
                <?php while($result = $DB->fetchObject($query)){ ?>
                <tr>
                   <td>
+                     
+                     <i class="fa fa-check-square-o"></i> <?php echo $result->title?>
+                  </td>
+                  <td><?php echo humain_date($result->date) ?> ago</td>
+                  <td class="tools">
                      <?php if($result->status == 0) { ?>
-                     <i class="icon-star" style="color: #0F76B9" title="on"></i>
-                     <?php } else { ?>
-                     <i class="icon-star-empty" style="color: #0F76B9" title="off"></i>
-                     <?php } ?>
-                  </td>
-                  <td>
-                     <i class="icon-folder-close-alt"></i>
-                     <?php echo $result->title?> 
-                  </td>
-                  <td class="muted"><?php echo humain_date($result->date) ?> ago</td>
-                  <td class="">
-                     <a href="?cmd=subjects&amp;action=edit&amp;id=<?=$result->id?>" title="Edit">
-                     <i class="icon-pencil"></i>
+                     <a href="?cmd=subjects&amp;action=off&amp;id=<?=$result->id?>" title="Turn Off">
+                        <i class="fa fa-heart-o stats-gold"></i>
                      </a>
+                     <?php } else { ?>
+                     <a href="?cmd=subjects&amp;action=on&amp;id=<?=$result->id?>" title="Turn On">
+                        <i class="fa fa-heart"></i>
+                     </a>
+                     <?php } ?>
                      <a href="?cmd=subjects&amp;action=del&amp;id=<?=$result->id?>" title="Trash">
-                     <i class="icon-trash"></i>
+                        <i class="fa fa-trash-o"></i>
+                     </a>
+                     <a href="?cmd=subjects&amp;action=edit&amp;id=<?=$result->id?>" title="Edit">
+                        <i class="fa fa-pencil"></i>
                      </a>
                   </td>
                </tr>
                <?php } ?>
             </tbody>
          </table>
+         
+         <hr />
+
       </div>
+      
    </div>
 </div>

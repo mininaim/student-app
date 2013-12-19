@@ -1,98 +1,137 @@
 /** app.css */
 
-
 body {
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Droid Sans', sans-serif;
+    font-family: 'Raleway',sans-serif;
     font-size: 12px;
-    font-weight: 400!important;
+    -webkit-font-smoothing: antialiased
 }
-#bar {
-    background: #7C40A2;
-    overflow: hidden;
-    height: 5px;
+/** tags */
+.tags {
+    overflow: hidden
 }
-#bar a { color: #fff }
+.tag-item {
+    float: left;
+    margin: 4px 0 6px 2px;
+    padding: 4px
+}
+.tags a {
+    font-weight: 400;
+    color: #fff;
+    background: #0B70BE;
+    border-radius: 2px;
+    padding: 4px 5px
+}
+.tags a:hover,
+.tags a:focus {
+    text-decoration: none;
+    color: #fff;
+    background: #C00
+}
+/** chosen */
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+    padding: inherit
+}
+
+/** credit */
+.credit {
+    padding: 10px 0;
+    text-align: center;
+    color: #999;
+    font-size: 10px;
+    text-transform: capitalize
+}
+/** login-form */
 .login-form {
     margin-top: 60px;
-    border: 1px solid #eee;
+    border: 1px solid #aaa;
     border-radius: 5px;
-    padding: 1em;
-}
-.alert { margin-top: 10px }
-.navbar { border-radius: 0 }
-.modal {
-    border: none;
-    border-radius: 0;
-    display: none;
-}
-.modal .nav {
-    list-style: none;
+    padding: 2em 1em;
     overflow: hidden;
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.1) inset
 }
+/** bar */
+.bar {
+    background: #0B70BE;
+    height: 3px
+}
+/** gravatar */
 .gravatar {
-    border: 1px solid #ECF0F1;
     border-radius: 100%;
     box-shadow: 0 0 3px rgba(0,0,0,0.25);
     opacity: 1;
     transition: opacity .25s ease-in-out 0;
     width: 20px;
+    padding: 2px;
+    background: white
 }
-.chosen-select { width: 100%!important }
+/** overwrite bootstrap */
+.dropdown-menu > li > a { font-size: 11px }
+.form-control { font-size: 12px }
+.container { margin-bottom: 30px }
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: #7C40A2;
+    border-color: #7C40A2
+}
+.alert { margin-top: 10px }
+.navbar { border-radius: 0 }
+label { font-weight: normal }
 
-/** tags */
-.tags { overflow: hidden }
-.tag-item {
-    float: left;
-    margin: 4px 0 6px 2px;
-    padding: 4px;
-}
-.tags a {
-    font-weight: 400;
-    color: #fff;
-    background: #C4A00E;
-    border-radius: 2px;
-    padding: 4px 5px;
-}
-.tags a:hover {
-    text-decoration: none;
-    color: #fff;
-    background: #C00;
-}
-/** minibar */
-.user-bar a { color: #fff }
-.user-bar a:hover { color: #CDE3F0 }
-.chosen-container-multi .chosen-choices li.search-field input[type="text"] { padding: inherit }
-/** navigation */
-.user-bar  .navbar-inner {
-    background-color: #0F76B9;
-    background-image: none;
-    background-repeat: repeat-x;
-    color: #fff;
-    border-color: #0F76B9;
-    border-radius: 0;
-}
-.user-bar  .divider-vertical {
-    border-left-color: #AFD1E8;
-    border-right-color: #0F76B9;
-}
-.user-bar  .brand,
-.user-bar  .nav > li > a {
-    color: #fff;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-}
-.user-bar  .nav > li > a:hover { color: #CDE3F0 }
-/** */
-.data {
-    border: 0px solid #C6AED8;
-    border-radius: 0px;
-    padding: 0px;
-    box-shadow: 0 1px 2px #DED1E9;
-}
+/** stats */
+.stats { color: #c00 }
+.stats-gold { color: #FFBF00 }
+.stats-gray { color: #999 }
 
-.credit {
-    padding:10px 0; text-align: center;
+/** message */
+.message {
+    color: #c00;
+    padding: 1em;
+    background: #FCF1F1;
+    border-radius: 2px
+}
+.message-success {
+    color: #0B70BE;
+    background: #E3EFF8
+}
+.message-white { background: white }
+
+/** widget */
+.widget {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 2em;
+    overflow: hidden;
+    box-shadow: 0 -1px 8px #E6DBED inset
+}
+/** tools */
+.tools { text-align: right }
+.tools a {
+    padding: 0 3px;
+    color: #999
+}
+.tools a:hover {
     color: #7C40A2;
-    font-size: 10px;
-    text-transform: capitalize;
+    text-decoration: none
 }
+/** modal */
+.modal {
+    background: white;
+    width: 340px
+}
+.modal p span {
+    font-weight: normal;
+    font-size: 90%
+}
+/** navbar user */
+.navbar-user {
+    border-color: #6E329D;
+    background: #6E329D
+}
+.navbar-user .navbar-brand,
+.navbar-user .navbar-nav > li > a { color: #fff }
+.navbar-user .navbar-nav > li > a:hover,
+.navbar-user .navbar-nav > li > a:focus { color: #C3AAD6 }
