@@ -1,0 +1,54 @@
+<?php $cmd = @$_GET['cmd'] ?>
+
+<nav class="navbar navbar-inverse" role="navigation">
+   <!-- Brand and toggle get grouped for better mobile display -->
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><?=app_title?></a>
+   </div>
+   <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+         <li class="divider-vertical"></li>
+         <li class="dropdown" <?php if($cmd == 'products' ) { echo 'class="active"'; }?>>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-folder-open"></i> Subjects <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+               <li><a href="?cmd=subjects&amp;action=new" title="Add Subject"><i class="icon-plus"></i> Add Subject</a></li>
+               <li><a href="?cmd=subjects" title="ALl Subjects"><i class="icon-folder-open"></i> All Subjects</a></li>
+            </ul>
+         </li>
+         <li class="divider-vertical"></li>
+         <li class="dropdown" <?php if($cmd == 'products' ) { echo 'class="active"'; }?>>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user"></i> Students <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+               <li><a href="?cmd=students&amp;action=new" title="Add Student"><i class="icon-plus"></i> Add Student</a></li>
+               <li><a href="?cmd=students" title="ALl Subjects"><i class="icon-folder-open"></i> All Students</a></li>
+            </ul>
+         </li>
+         <li class="divider-vertical"></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <li class="divider-vertical"></li>
+         <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#" title="<?php echo $_SESSION['super_admin_username'] ?>">
+            <img class="gravatar" src="<?php echo get_gravatar($_SESSION['super_admin_email'])?>" alt="<?php echo $result->username?>" /> 
+            <?php echo $_SESSION['super_admin_username'] ?> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+               <li <?php if($cmd == 'users' ) { echo 'class=""'; }?>>
+                  <a href="?cmd=profile" title="Profile"><i class="icon-edit"></i> Edit Profile</a>
+               </li>
+               <li class="divider"></li>
+               <li>
+                  <a href="?cmd=logout" title="Logout"><i class="icon-signout"></i> Logout</a>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </div>
+</nav>
+

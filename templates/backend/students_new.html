@@ -1,0 +1,46 @@
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="well" style="overflow:hidden">
+            <div class="col-md-4">
+               <?php if(isset($_GET['e']) AND @$_GET['e'] == 0) { ?>
+               <p style="color:#7C40A2;padding:1em">
+                  The fields marked with an <strong>*</strong> must be filled in.
+               </p>
+               <?php } ?>
+               <?php if(isset($_GET['e']) AND @$_GET['e'] == 1) { ?>
+               <p style="color:#7C40A2;padding:1em">
+                  This student is already existed. 
+               </p>
+               <?php } ?>
+               <?php if(isset($_GET['e']) AND @$_GET['e'] == 2) { ?>
+               <p style="color:#7C40A2;padding:1em">
+                  Your student has been successfully saved.
+               </p>
+               <?php } ?>
+               <h3 style="color: #aaa" class="heading">
+                  <i class="icon-user icon-1x icon-muted"></i> New Student 
+               </h3>
+               <hr />
+               <div id="form" class="">
+                  <form method="post" role="form" action="?cmd=students&amp;action=save">
+                     <div class="form-group">
+                        <label>Name </label>
+                        <input type="text" name="username" class="form-control" />
+                     </div>
+                     <div class="form-group">
+                        <label>Email-address </label>
+                        <input type="email" name="email" class="form-control" />
+                     </div>
+                     <div class="form-group">
+                        <label>Password </label>
+                        <input type="text" name="password" class="form-control" value="<?php echo randomPassword() ?>" />
+                     </div>
+                     <input type="submit" value="Add New student" class="btn btn-success" />
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

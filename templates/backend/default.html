@@ -1,0 +1,56 @@
+<div class="container">
+   <div class="row">
+      <div class="col-md-4">
+         <div class="well">
+            <h3 class="muted"><i class="icon-zoom-out icon-1x"></i> Search</h3>
+            <hr />
+            <form role="form" method="post" action="?cmd=results">
+               <label class="sr-only" for="exampleInputEmail2">Select a subject</label>
+               <div class="form-group">
+                  <select name="subject_id" data-placeholder="Select a subject" class="form-control chosen-select" tabindex="8">
+                     <option value=""></option>
+                     <?php $subjects = $DB->execute("SELECT * FROM subjects ORDER by id DESC") ?>                           
+                     <?php while($row = $DB->fetchObject($subjects)) { ?>
+                     <option value="<?php echo $row->id?>"><?php echo $row->title ?></option>
+                     <?php } ?>
+                  </select>
+               </div>
+               <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <script src="<?=app_url?>js/chosen.jquery.js"></script>
+            <script type="text/javascript">
+               var config = {
+               '.chosen-select'           : {width: '200px'},
+                 '.chosen-select-deselect'  : {allow_single_deselect:true},
+                 '.chosen-select-no-single' : {disable_search_threshold:10},
+                 '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+               
+               }
+               for (var selector in config) {
+                 $(selector).chosen(config[selector]);
+               } 
+            </script> 
+         </div>
+      </div>
+      <div class="col-md-4">
+         <table class="table well">
+            <tbody>
+               <tr>
+                  <td>Subjects</td>
+                  <td style="width:10px">
+                     <span style="color:#c00"><?php echo get_stats('subjects')?></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>Students</td>
+                  <td>
+                     <span style="color:#c00"><?php echo get_stats('students')?></span>
+                  </td>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+

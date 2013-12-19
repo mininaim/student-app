@@ -1,0 +1,45 @@
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="well" style="overflow:hidden">
+            <div class="col-md-4">
+               <?php if(isset($_GET['e']) AND @$_GET['e'] == 0) { ?>
+               <p style="color:#7C40A2;padding:1em">
+                  The fields marked with an <strong>*</strong> must be filled in.
+               </p>
+               <?php } ?>
+               <?php if(isset($_GET['e']) AND @$_GET['e'] == 1) { ?>
+               <p style="color:#7C40A2;padding:1em">
+                  This subject is already existed. 
+               </p>
+               <?php } ?>
+               <?php if(isset($_GET['e']) AND @$_GET['e'] == 2) { ?>
+               <p style="color:#7C40A2;padding:1em">
+                  Your subject has been successfully saved.
+               </p>
+               <?php } ?>
+               <form role="form" method="post" action="?cmd=subjects&amp;action=save">
+                  <div class="form-group">
+                     <label>Add New Subject </label>
+                     <input type="text" name="title" class="form-control" placeholder="" />
+                  </div>
+                  <div class="radio">
+                     <label>
+                     <input type="radio" name="status" id="optionsRadios1" value="0" <?php echo $result->status=='0'?'checked="checked"':''?>>
+                     On
+                     </label>
+                  </div>
+                  <div class="radio">
+                     <label>
+                     <input type="radio" name="status" id="optionsRadios2" value="1" <?php echo $result->status=='1'?'checked="checked"':''?>>
+                     Off
+                     </label>
+                  </div>
+                  <input type="submit" value="Submit" class="btn btn-success" />
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>

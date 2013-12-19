@@ -1,0 +1,38 @@
+<div id="bar"></div>
+
+<div class="container">
+   <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+         <?php if(isset($_GET['e']) AND @$_GET['e'] == 0) { ?>
+         <div class="alert alert-warning">
+            <strong>Warning!</strong> Wrong email or password.
+         </div>
+         <?php } ?>
+         <?php if(isset($_GET['e']) AND @$_GET['e'] == 1) { ?>
+         <div class="alert alert-warning">
+            <strong>Warning!</strong> Some errors occurred: invalid Email.
+         </div>
+         <?php } ?>
+         <div id="">
+            <div class="login-form">
+               <?php if(!isset($_GET['cmd'])) { ?>
+               <form role="form" method="post" action="?cmd=log">
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Email address</label>
+                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputPassword1">Password</label>
+                     <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+               </form>
+               <?php } ?>
+            </div>
+
+            <p class="credit">built with Sublime Text 3 </p>
+         </div>
+      </div>
+   </div>
+</div>
+

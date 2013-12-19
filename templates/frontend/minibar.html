@@ -1,0 +1,63 @@
+<?php $cmd = @$_GET['cmd'] ?>
+<?php $super_user_id = $_SESSION['super_user_id'] ?>
+
+<nav class="navbar navbar-inverse" role="navigation">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><?=app_title?></a>
+   </div>
+   <div class="collapse navbar-collapse">
+   <ul class="nav navbar-nav navbar-right">
+      <li class="divider-vertical"></li>
+      <li>
+         <a href="#" data-toggle="modal" data-target="#ModalRemove-Add" title="Add Subject">
+         <i class="icon-plus"></i> Add Subject
+         </a>
+         <div id="ModalRemove-Add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal" style="background:#fff">
+         <div class="modal-header">
+            <h4><i class="icon-tag"></i> Select one or more subject             <span class="close pull-right" data-dismiss="modal">
+               <i class="icon-remove"></i>
+               </span> 
+               List of Subj
+            </h4>
+         </div>
+         <div class="modal-header">
+            <form method="post" action="index.php?cmd=tags">
+               <select name="tags[]" data-placeholder="Your favorite Subjects" multiple class=" chosen-select form-control" style="padding:8px" tabindex="8">
+                  <option value=""></option>
+                  <?php $tags = $DB->execute("SELECT * FROM subjects WHERE id NOT IN (SELECT subject_id FROM tags)") ?>                             
+                  <?php while($row = $DB->fetchObject($tags)) { ?>
+                  <option value="<?php echo $row->id?>"><?php echo $row->title ?></option>
+                  <?php } ?>
+               </select>
+               <p style="padding-top:10px">
+                  <input type="submit" value="Submit" class="btn btn-success" />
+               </p>
+            </form>
+         </div>
+         <div>
+      </li>
+      <li>
+      <a href="?cmd=logout" title="Logout"><i class="icon-off"></i> Logout</a>
+      </li>
+   </ul>
+   </div>
+</nav>
+   <script src="<?=app_url?>js/chosen.jquery.js"></script>
+   <script type="text/javascript">
+      var config = {
+        '.chosen-select'           : {width: '200px'},
+        '.chosen-select-deselect'  : {allow_single_deselect:true},
+        '.chosen-select-no-single' : {disable_search_threshold:10},
+        '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      
+      }
+      for (var selector in config) {
+        $(selector).chosen(config[selector]);
+      }
+   </script>

@@ -1,0 +1,113 @@
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <?php if(isset($_GET['e']) AND @$_GET['e'] == 0) { ?>
+         <p style="color:#7C40A2;padding:1em">
+            The fields marked with an <strong>*</strong> must be filled in.
+         </p>
+         <?php } ?>
+         <?php if(isset($_GET['e']) AND @$_GET['e'] == 1) { ?>
+         <p style="color:#7C40A2;padding:1em">
+            This student is already existed. 
+         </p>
+         <?php } ?>
+         <?php if(isset($_GET['e']) AND @$_GET['e'] == 2) { ?>
+         <p style="color:#7C40A2;padding:1em">
+            The student has been successfully saved.
+         </p>
+         <?php } ?>
+         <?php if(isset($_GET['e']) AND @$_GET['e'] == 3) { ?>
+         <p style="color:#7C40A2;padding:1em">
+            The student has been successfully deleted.
+         </p>
+         <?php } ?>
+         <h3 style="color: #aaa" class="heading">
+            <i class="icon-group icon-1x icon-muted"></i> All Students 
+         </h3>
+         <hr />
+         <table class="table table-striped">
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Added</th>
+                  <th>Subjects</th>
+                  <th></th>
+               </tr>
+            </thead>
+            <tbody>
+               <?php while($result = $DB->fetchObject($query)){ ?>
+               <tr>
+                  <td><img class="gravatar" src="<?php echo get_gravatar($result->email)?>" alt="<?php echo $result->name?>" /> 
+                     <?php echo $result->username?>
+                  </td>
+                  <td><?php echo $result->email?></td>
+                  <td class="muted"><?php echo humain_date($result->date) ?> ago</td>
+                  <td>
+                     <a href="#" data-toggle="modal" data-target="#ModalRemove-<?php echo $result->id ?>" title="View Subjects List">
+                     <?php  $tags   = $DB->execute("SELECT t. * , s. *
+                        FROM subjects s
+                        JOIN tags t ON t.subject_id = s.id
+                        AND student_id = $result->id");
+                        ?>
+                     (<?php echo $DB->numRows($tags) ?>)
+                     </a>
+                     <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                           <div id="ModalRemove-<?php echo $result->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal" style="background:#fff">
+                              <div class="modal-header">
+                                 <h3 id="myModalLabel">
+                                    <h4>
+                                       <span class="close pull-right" data-dismiss="modal">
+                                       <i class="icon-remove"></i>
+                                       </span> 
+                                       List of Subjects
+                                    </h4>
+                                    <hr />
+                                    <p>
+                                       <?php while($row = $DB->fetchObject($tags)) { ?>
+                                       <span class="label label-warning"><?php echo $row->title ?></span>
+                                       <?php } ?>
+                                    </p>
+                                 </h3>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </td>
+                  <td>
+                     <?php if($result->status == 0) { ?>
+                     <a href="?cmd=students&amp;action=off&amp;id=<?=$result->id?>" title="Turn Off">
+                     <i class="icon-heart" style="color: #CC0033;"></i>
+                     </a>
+                     <?php } else { ?>
+                     <a href="?cmd=students&amp;action=on&amp;id=<?=$result->id?>" title="Turn On">
+                     <i class="icon-heart-empty"></i>
+                     </a>
+                     <?php } ?>
+                     <a href="?cmd=students&amp;action=del&amp;id=<?=$result->id?>" title="Trash">
+                     <i class="icon-trash"></i>
+                     </a>
+                     <a href="?cmd=students&amp;action=edit&amp;id=<?=$result->id?>" title="Edit">
+                     <i class="icon-edit" style="vertical-align:middle"></i>
+                     </a>
+                  </td>
+               </tr>
+               <?php } ?>
+            </tbody>
+         </table>
+         <hr />
+         <div>
+            <ul class="pagination">
+               <?php for($i = 1; $i <= $total; $i++) { ?>
+               <?php if($i == $p) { ?>
+               <li class="active"><a href="?cmd=students&amp;p=<?php echo $i?>" title="<?php echo $i?>"><?php echo $i?></a></li>
+               <?php } else {  ?>
+               <li><a href="?cmd=students&amp;p=<?php echo $i?>" title="<?php echo $i?>"><?php echo $i?></a></li>
+               <?php } ?>
+               <?php } ?>
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>
