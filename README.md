@@ -12,7 +12,7 @@ A general student-subject system
 ### Features:
 - Responsive Web Design
 
-#### Admin:
+##### Admin:
 
 - One-single login page
 - Add/edit/delete subjects
@@ -24,7 +24,7 @@ A general student-subject system
 - Search (in the upcoming version)
 - ... etc
 
-#### Student:
+##### Student:
 
 - Login from the same login page
 - Add/delete subjects (tags) via ajax
@@ -34,27 +34,27 @@ A general student-subject system
 
 
 
-## Screenshot:
+### Screenshot:
 ![Alt text](https://raw.github.com/mininaim/Student/master/student_mobile_version.png "ScreenShot")
 
 
-###How to Install:
+### How to Install:
 
 - The app run on localserver with almost 0 configuration, you need the latest version of PHP and MySQL.
 - Create new database and import the file (mysql/database.sql)
 - Eit config.inc.php file (read it carefully), e.g: change email, URL (http://localhost/student/)
 - login with the credentials above, (you can change everything from the dashboard)
     
-### Login as an Administrator:
-mininaim@gmail.com
-admin123$
+####  Login as an Administrator:
+- mininaim@gmail.com
+- admin123$
 
-### Login as a Student:
-david@gmail.com
-admin
+#### Login as a Student:
+- david@gmail.com
+- admin
 
 
-## Credits
+### Credits
 Copyright - mininaim@gmail.com
 [http://mininaim.com](http://mininaim.com)
 
