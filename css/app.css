@@ -122,9 +122,15 @@ label { font-weight: normal }
     background: white;
     width: 340px
 }
+.modal p {
+    overflow: hidden;
+}
 .modal p span {
     font-weight: normal;
-    font-size: 90%
+    font-size: 90%;
+    display: block;
+    float: left;
+    margin: 5px 10px 6px 0
 }
 /** navbar user */
 .navbar-user {
