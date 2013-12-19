@@ -3,7 +3,7 @@ A general student-subject system
 
 ### Built with:
 
-- Bootstrap 3.+
+- Bootstrap v3.0.3
 - PHP & MySQL
 - jQuery
 
