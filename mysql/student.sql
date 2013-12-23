@@ -1,3 +1,20 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Dec 22, 2013 at 05:49 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.16
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `student`
@@ -18,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `status` int(1) NOT NULL,
   `role` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `students`
@@ -41,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `subjects` (
   `date` datetime DEFAULT NULL,
   `status` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `subjects`
@@ -66,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `student_id` int(1) NOT NULL,
   `subject_id` varchar(225) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `tags`
@@ -77,3 +94,7 @@ INSERT INTO `tags` (`id`, `student_id`, `subject_id`) VALUES
 (39, 4, '30'),
 (38, 4, '31'),
 (37, 4, '33');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
