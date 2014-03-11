@@ -1,4 +1,4 @@
-## Student 
+## Student App
 A general student-subject system
 
 ### Built with:
